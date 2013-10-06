@@ -15,7 +15,7 @@ end
 
 execute "Installing re2 #{node['re2']['archive']['version']} archive" do
   cwd "#{Chef::Config[:file_cache_path]}/re2"
-  command "make && make install"
+  command "make install"
   creates "#{node['re2']['archive']['install_dir']}/lib/libre2.so"
   action :run
   notifies :run, "execute[ldconfig]", :immediately

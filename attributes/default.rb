@@ -17,3 +17,7 @@ default['re2']['package']['packages'] = value_for_platform(
     "default" => %w{re2 re2-devel}
   }
 )
+
+# Source attributes
+default['re2']['source']['reference'] = "tip"
+default['re2']['source']['url'] = "https://re2.googlecode.com/hg"

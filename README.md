@@ -25,7 +25,7 @@ These attributes are under the `node['re2']` namespace.
 
 Attribute | Description | Type | Default
 ----------|-------------|------|--------
-install_type | Installation type for re2 ("archive" only currently) | String | "archive"
+install_type | Installation type for re2 ("archive", "package", or "source") | String | auto-detected (see attributes/default.rb)
 
 ### Archive Attributes
 
@@ -46,11 +46,21 @@ Attribute | Description | Type | Default
 ----------|-------------|------|--------
 packages | Packages for installation | Array of Strings | auto-detected (see attributes/default.rb)
 
+### Source Attributes
+
+These attributes are under the `node['re2']['source']` namespace.
+
+Attribute | Description | Type | Default
+----------|-------------|------|--------
+reference | Repository reference for re2 source | String | tip
+url | Repository URL for re2 source | String | https://re2.googlecode.com/hg
+
 ## Recipes
 
 * `recipe[re2]` Installs re2
 * `recipe[re2::archive]` Installs re2 via archive
 * `recipe[re2::package]` Installs re2 via package
+* `recipe[re2::source]` Installs re2 via source
 
 ## Usage
 
@@ -68,6 +78,10 @@ Defaults to installing archive on Ubuntu and installing packages on Fedora/RHEL 
 ### Package Installation
 
 * Add `recipe[re2::package]` to your node's run list
+
+### Source Installation
+
+* Add `recipe[re2::source]` to your node's run list
 
 ## Testing and Development
 
