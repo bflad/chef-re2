@@ -38,16 +38,25 @@ install_dir | Installation prefix | String | /usr/local
 url | Archive URL | String | `https://re2.googlecode.com/files/re2-#{node['re2']['archive']['version']}.tgz`
 version | Archive version to install | String | 20130802
 
+### Package Attributes
+
+These attributes are under the `node['re2']['package']` namespace.
+
+Attribute | Description | Type | Default
+----------|-------------|------|--------
+packages | Packages for installation | Array of Strings | auto-detected (see attributes/default.rb)
+
 ## Recipes
 
 * `recipe[re2]` Installs re2
 * `recipe[re2::archive]` Installs re2 via archive
+* `recipe[re2::package]` Installs re2 via package
 
 ## Usage
 
 ### Default Installation
 
-Defaults to installing archive.
+Defaults to installing archive on Ubuntu and installing packages on Fedora/RHEL based systems.
 
 * Add `recipe[re2]` to your node's run list
 
@@ -55,6 +64,10 @@ Defaults to installing archive.
 
 * If necessary, set `node['re2']['archive']['version']` and `node['re2']['archive']['checksum']`
 * Add `recipe['gflags::archive']` to your node's run list
+
+### Package Installation
+
+* Add `recipe[re2::package]` to your node's run list
 
 ## Testing and Development
 
