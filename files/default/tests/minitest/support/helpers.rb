@@ -1,4 +1,6 @@
+# Helpers module
 module Helpers
+  # Helpers::Re2 module
   module Re2
     include MiniTest::Chef::Assertions
     include MiniTest::Chef::Context
