@@ -1,9 +1,9 @@
-include_recipe "build-essential"
-include_recipe "mercurial"
+include_recipe 'build-essential'
+include_recipe 'mercurial'
 
 directory "#{Chef::Config[:file_cache_path]}/re2" do
-  owner "root"
-  group "root"
+  owner 'root'
+  group 'root'
   mode 00755
   recursive true
   action :create
@@ -15,15 +15,15 @@ mercurial "#{Chef::Config[:file_cache_path]}/re2" do
   action :checkout
 end
 
-execute "Installing re2 via source" do
+execute 'Installing re2 via source' do
   cwd "#{Chef::Config[:file_cache_path]}/re2"
-  command "make install"
-  creates "/usr/local/lib/libre2.so"
+  command 'make install'
+  creates '/usr/local/lib/libre2.so'
   action :run
-  notifies :run, "execute[ldconfig]", :immediately
+  notifies :run, 'execute[ldconfig]', :immediately
 end
 
-execute "ldconfig" do
-  command "ldconfig"
+execute 'ldconfig' do
+  command 'ldconfig'
   action :nothing
 end
