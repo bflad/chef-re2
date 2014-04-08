@@ -8,8 +8,8 @@ module Helpers
 
     def re2_packages_cpp
       value_for_platform(
-        %w{centos fedora redhat} => {
-          'default' => %w{re2 re2-devel}
+        %w(centos fedora redhat) => {
+          'default' => %w(re2 re2-devel)
         }
       )
     end

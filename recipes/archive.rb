@@ -1,10 +1,10 @@
 include_recipe 'build-essential'
 
 remote_file "#{Chef::Config[:file_cache_path]}/re2-#{node['re2']['archive']['version']}.tgz" do
-  source    node['re2']['archive']['url']
-  checksum  node['re2']['archive']['checksum']
-  mode      '0644'
-  action    :create_if_missing
+  source node['re2']['archive']['url']
+  checksum node['re2']['archive']['checksum']
+  mode '0644'
+  action :create_if_missing
 end
 
 execute "Extracting re2 #{node['re2']['archive']['version']}" do

@@ -15,8 +15,8 @@ default['re2']['archive']['checksum'] =
 
 # Package attributes
 default['re2']['package']['packages'] = value_for_platform(
-  %w{centos fedora redhat} => {
-    'default' => %w{re2 re2-devel}
+  %w(centos fedora redhat) => {
+    'default' => %w(re2 re2-devel)
   }
 )
 
